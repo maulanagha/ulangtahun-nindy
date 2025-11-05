@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Selamat Ulang Tahun Nindy 💖🎂</title>
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
     body {
       font-family: "Poppins", sans-serif;
       background: linear-gradient(135deg, #ffb6c1, #ffd6e0);
@@ -45,18 +47,9 @@
       margin-top: 10px;
     }
 
-    @keyframes typing {
-      from { width: 0 }
-      to { width: 12ch }
-    }
-
-    @keyframes blink {
-      50% { border-color: transparent; }
-    }
-
-    @keyframes fadeOut {
-      to { opacity: 0; visibility: hidden; }
-    }
+    @keyframes typing { from { width: 0 } to { width: 12ch } }
+    @keyframes blink { 50% { border-color: transparent; } }
+    @keyframes fadeOut { to { opacity: 0; visibility: hidden; } }
 
     /* Konten utama */
     #main {
@@ -66,18 +59,20 @@
       justify-content: center;
       height: 100vh;
       animation: fadeIn 2s ease-in-out forwards;
+      padding: 20px;
+      box-sizing: border-box;
     }
 
     h1 {
-      font-size: 3em;
+      font-size: 2.2em;
       color: #ff4081;
-      margin-top: 40px;
+      margin-top: 20px;
       animation: fadeIn 2s ease-in-out;
     }
 
     p {
-      font-size: 1.2em;
-      max-width: 650px;
+      font-size: 1.1em;
+      max-width: 600px;
       line-height: 1.7;
       margin: 20px;
       animation: fadeIn 3s ease-in-out;
@@ -110,16 +105,17 @@
       margin-top: 25px;
       border-radius: 20px;
       box-shadow: 0 0 25px rgba(255, 105, 180, 0.6);
-      width: 230px;
-      height: 230px;
+      width: 200px;
+      height: 200px;
       object-fit: cover;
       animation: fadeInPhoto 2s ease-in-out;
     }
 
     .heart {
-      font-size: 2.5em;
+      font-size: 2em;
       color: red;
       animation: pulse 1s infinite;
+      margin-top: 10px;
     }
 
     .footer {
@@ -128,14 +124,15 @@
       font-size: 0.9em;
       color: #555;
       animation: fadeIn 5s ease-in-out;
+      width: 100%;
     }
 
     /* Balon */
     .balloon {
       position: absolute;
       bottom: -150px;
-      width: 60px;
-      height: 80px;
+      width: 50px;
+      height: 70px;
       background: radial-gradient(circle at 30% 30%, #ff7eb9, #ff4081);
       border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
       animation: float 10s infinite ease-in;
@@ -159,7 +156,6 @@
       100% { transform: translateY(-1200px) rotate(-5deg); }
     }
 
-    /* Hati jatuh */
     .falling-heart {
       position: fixed;
       top: -10px;
@@ -190,6 +186,14 @@
       50% { transform: scale(1.2); opacity: 1; }
       100% { transform: scale(1); opacity: 0.8; }
     }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      h1 { font-size: 1.8em; }
+      p { font-size: 1em; padding: 12px 18px; }
+      button { font-size: 0.9em; padding: 10px 22px; }
+      .photo { width: 150px; height: 150px; }
+    }
   </style>
 </head>
 <body>
@@ -206,10 +210,10 @@
       Untuk orang yang paling berharga di hidupku,<br><br>
       Terima kasih telah datang mengisi hari-hariku selama 2 tahun ini.<br>
       Terima kasih telah menjadi orang yang paling spesial di hidupku,<br>
-      Terima kasih telah menjadi teman berbagi cerita random dan hal-hal aneh dan berbagi tawa dan sedih bersama,<br>
-      Semoga semua keinginan mu tercapai satu persatu.<br>
+      Terima kasih telah menjadi teman berbagi cerita random dan hal-hal aneh, berbagi tawa dan sedih bersama.<br>
+      Semoga satu persatu keinginan mu tercapai.<br>
       Terima kasih untuk semuanya yang sudah kamu berikan.<br><br>
-      <strong>Selamat Ulang Tahun Nindy 💖🎂</strong>
+      <strong>Selamat Ulang Tahun Nindy 💕</strong>
     </p>
 
     <button onclick="showSurprise()">Klik untuk kejutan 💝</button>
@@ -224,7 +228,7 @@
   </audio>
 
   <script>
-    // Setelah animasi pembuka selesai, tampilkan halaman utama
+    // Setelah animasi pembuka selesai
     setTimeout(() => {
       const opening = document.getElementById('opening');
       opening.style.animation = 'fadeOut 2s ease-in-out forwards';
@@ -234,7 +238,7 @@
       }, 2000);
     }, 6000);
 
-    // Tambah balon acak
+    // Balon acak
     const colors = ['#ff7eb9', '#ff65a3', '#7afcff', '#feff9c', '#fff740'];
     for (let i = 0; i < 12; i++) {
       const balloon = document.createElement('div');
