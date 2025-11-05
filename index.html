@@ -3,85 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Selamat Ulang Tahun Nindy 🎉</title>
-  <style>
-    body {
-      font-family: "Poppins", sans-serif;
-      background: linear-gradient(135deg, #ffb6c1, #ffd6e0);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      margin: 0;
-      text-align: center;
-      color: #333;
-      overflow: hidden;
-    }
-    h1 {
-      font-size: 3em;
-      color: #ff4081;
-      animation: fadeIn 2s ease-in-out;
-    }
-    p {
-      font-size: 1.2em;
-      max-width: 600px;
-      line-height: 1.6;
-      margin: 20px;
-      animation: fadeIn 3s ease-in-out;
-    }
-    .heart {
-      font-size: 2em;
-      color: red;
-      animation: pulse 1s infinite;
-    }
-    @keyframes pulse {
-      0% { transform: scale(1); opacity: 0.8; }
-      50% { transform: scale(1.2); opacity: 1; }
-      100% { transform: scale(1); opacity: 0.8; }
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    .footer {
-      position: absolute;
-      bottom: 15px;
-      font-size: 0.9em;
-      color: #666;
-    }
-  </style>
-</head>
-<body>
-  <h1>Selamat Ulang Tahun, Nindy! 🎂</h1>
-  <p>
-    Untuk orang yang paling berharga di hidupku,<br><br>
-    Terima kasih telah datang mengisi hari-hariku selama 2 tahun ini,<br>
-    Terima kasih telah menjadi orang yang paling spesial di hidupku,<br>
-    Terima kasih telah menjadi teman berbagi cerita random dan hal-hal aneh,
-    berbagi tawa dan sedih bersama.<br><br>
-    semoga semua keinginanmu tercapai
-    Terima kasih untuk semuanya yang sudah kamu berikan.<br><br>
-    <strong>Selamat Ulang Tahun Nindy  💕</strong>
-  </p>
-  <div class="heart">❤️</div>
-  <div class="footer">Dari seseorang yang sangat menyayangimu 💕</div>
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="id">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Selamat Ulang Tahun Nindy 💖🎂</title>
   <style>
     body {
       font-family: "Poppins", sans-serif;
       background: linear-gradient(135deg, #ffb6c1, #ffd6e0);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
       height: 100vh;
       margin: 0;
       text-align: center;
@@ -89,9 +15,63 @@
       overflow: hidden;
     }
 
+    /* Animasi pembuka */
+    #opening {
+      position: fixed;
+      inset: 0;
+      background: linear-gradient(135deg, #ff9aa2, #fad0c4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      color: white;
+      z-index: 9999;
+    }
+
+    #typing {
+      font-size: 2em;
+      border-right: 3px solid white;
+      white-space: nowrap;
+      overflow: hidden;
+      width: 0;
+      animation: typing 4s steps(30, end) forwards, blink 0.8s infinite;
+    }
+
+    #subtext {
+      font-size: 1.2em;
+      opacity: 0;
+      animation: fadeIn 2s ease-in-out forwards;
+      animation-delay: 4s;
+      margin-top: 10px;
+    }
+
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 12ch }
+    }
+
+    @keyframes blink {
+      50% { border-color: transparent; }
+    }
+
+    @keyframes fadeOut {
+      to { opacity: 0; visibility: hidden; }
+    }
+
+    /* Konten utama */
+    #main {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      animation: fadeIn 2s ease-in-out forwards;
+    }
+
     h1 {
       font-size: 3em;
       color: #ff4081;
+      margin-top: 40px;
       animation: fadeIn 2s ease-in-out;
     }
 
@@ -118,12 +98,22 @@
       margin-top: 15px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.2);
       transition: all 0.3s ease;
-      animation: fadeIn 4s ease-in-out;
     }
 
     button:hover {
       background: #ff5fa9;
       transform: scale(1.05);
+    }
+
+    .photo {
+      display: none;
+      margin-top: 25px;
+      border-radius: 20px;
+      box-shadow: 0 0 25px rgba(255, 105, 180, 0.6);
+      width: 230px;
+      height: 230px;
+      object-fit: cover;
+      animation: fadeInPhoto 2s ease-in-out;
     }
 
     .heart {
@@ -138,33 +128,6 @@
       font-size: 0.9em;
       color: #555;
       animation: fadeIn 5s ease-in-out;
-    }
-
-    .photo {
-      display: none;
-      margin-top: 25px;
-      border-radius: 20px;
-      box-shadow: 0 0 25px rgba(255, 105, 180, 0.6);
-      width: 230px;
-      height: 230px;
-      object-fit: cover;
-      animation: fadeInPhoto 2s ease-in-out;
-    }
-
-    @keyframes pulse {
-      0% { transform: scale(1); opacity: 0.8; }
-      50% { transform: scale(1.3); opacity: 1; }
-      100% { transform: scale(1); opacity: 0.8; }
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes fadeInPhoto {
-      from { opacity: 0; transform: scale(0.8); }
-      to { opacity: 1; transform: scale(1); }
     }
 
     /* Balon */
@@ -211,36 +174,67 @@
         opacity: 0;
       }
     }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInPhoto {
+      from { opacity: 0; transform: scale(0.8); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); opacity: 0.8; }
+      50% { transform: scale(1.2); opacity: 1; }
+      100% { transform: scale(1); opacity: 0.8; }
+    }
   </style>
 </head>
 <body>
-  <h1>Selamat Ulang Tahun, Nindy! 🎉</h1>
+  <!-- Pembuka -->
+  <div id="opening">
+    <div id="typing">Hai Nindy 💖</div>
+    <div id="subtext">Hari ini hari yang spesial untukmu...</div>
+  </div>
 
-  <p>
-    Untuk orang yang paling berharga di hidupku,<br><br>
-    Terima kasih telah datang mengisi hari-hariku selama 2 tahun ini.<br>
-    Terima kasih telah menjadi orang yang paling spesial di hidupku,<br>
-    terima kasih telah menjadi teman berbagi cerita random dan hal-hal aneh,<br>
-    berbagi tawa dan sedih bersama.<br><br>
-    Terima kasih untuk semuanya yang sudah kamu berikan.<br><br>
-    <strong>Selamat Ulang Tahun Nindy 🎉💕</strong>
-  </p>
+  <!-- Halaman utama -->
+  <div id="main">
+    <h1>Selamat Ulang Tahun, Nindy! 🎉</h1>
+    <p>
+      Untuk orang yang paling berharga di hidupku,<br><br>
+      Terima kasih telah datang mengisi hari-hariku selama 2 tahun ini.<br>
+      Terima kasih telah menjadi orang yang paling spesial di hidupku,<br>
+      Terima kasih telah menjadi teman berbagi cerita random dan hal-hal aneh dan berbagi tawa dan sedih bersama,<br>
+      Semoga semua keinginan mu tercapai satu persatu.<br>
+      Terima kasih untuk semuanya yang sudah kamu berikan.<br><br>
+      <strong>Selamat Ulang Tahun Nindy 💖🎂</strong>
+    </p>
 
-  <button onclick="showSurprise()">Klik untuk kejutan 💝</button>
+    <button onclick="showSurprise()">Klik untuk kejutan 💝</button>
+    <img src="https://i.ibb.co/ZVh01dm/sample-girl-photo.jpg" alt="LOVE YOU SENGGGG" class="photo" id="photo">
+    <div class="heart">❤️</div>
+    <div class="footer">Dari seseorang yang sangat menyayangimu 💕</div>
+  </div>
 
-  <img src="https://drive.google.com/file/d/148TYk0S9Z9jT_Hh81DA0ILKU-PSZZZjg/view?usp=sharing" alt="LOVE YOU SENGGGG" class="photo" id="photo">
-
-  <div class="heart">❤️</div>
-
-  <div class="footer">Dari seseorang yang sangat menyayangimu 💕</div>
-
-  <!-- Musik lembut -->
+  <!-- Musik -->
   <audio autoplay loop>
     <source src="https://cdn.pixabay.com/download/audio/2023/03/28/audio_d7a5a44a8a.mp3?filename=romantic-piano-melody-14405.mp3" type="audio/mpeg">
   </audio>
 
-  <!-- Balon acak -->
   <script>
+    // Setelah animasi pembuka selesai, tampilkan halaman utama
+    setTimeout(() => {
+      const opening = document.getElementById('opening');
+      opening.style.animation = 'fadeOut 2s ease-in-out forwards';
+      setTimeout(() => {
+        opening.style.display = 'none';
+        document.getElementById('main').style.display = 'flex';
+      }, 2000);
+    }, 6000);
+
+    // Tambah balon acak
     const colors = ['#ff7eb9', '#ff65a3', '#7afcff', '#feff9c', '#fff740'];
     for (let i = 0; i < 12; i++) {
       const balloon = document.createElement('div');
@@ -255,7 +249,6 @@
     function showSurprise() {
       const img = document.getElementById('photo');
       img.style.display = 'block';
-
       for (let i = 0; i < 25; i++) {
         const heart = document.createElement('div');
         heart.classList.add('falling-heart');
@@ -269,139 +262,3 @@
   </script>
 </body>
 </html>
-<!DOCTYPE html>
-<html lang="id">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Selamat Ulang Tahun Nindy 🎂💖</title>
-  <style>
-    body {
-      font-family: "Poppins", sans-serif;
-      background: linear-gradient(135deg, #ffb6c1, #ffd6e0);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      margin: 0;
-      text-align: center;
-      color: #333;
-      overflow: hidden;
-    }
-
-    h1 {
-      font-size: 3em;
-      color: #ff4081;
-      animation: fadeIn 2s ease-in-out;
-    }
-
-    p {
-      font-size: 1.2em;
-      max-width: 650px;
-      line-height: 1.7;
-      margin: 20px;
-      animation: fadeIn 3s ease-in-out;
-      background: rgba(255,255,255,0.3);
-      padding: 15px 25px;
-      border-radius: 15px;
-      backdrop-filter: blur(6px);
-    }
-
-    .heart {
-      font-size: 2.5em;
-      color: red;
-      animation: pulse 1s infinite;
-    }
-
-    .footer {
-      position: absolute;
-      bottom: 15px;
-      font-size: 0.9em;
-      color: #555;
-      animation: fadeIn 5s ease-in-out;
-    }
-
-    @keyframes pulse {
-      0% { transform: scale(1); opacity: 0.8; }
-      50% { transform: scale(1.3); opacity: 1; }
-      100% { transform: scale(1); opacity: 0.8; }
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    /* Balon */
-    .balloon {
-      position: absolute;
-      bottom: -150px;
-      width: 60px;
-      height: 80px;
-      background: radial-gradient(circle at 30% 30%, #ff7eb9, #ff4081);
-      border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
-      animation: float 10s infinite ease-in;
-      opacity: 0.8;
-    }
-
-    .balloon::after {
-      content: '';
-      position: absolute;
-      width: 2px;
-      height: 100px;
-      background: #666;
-      bottom: -100px;
-      left: 50%;
-      transform: translateX(-50%);
-    }
-
-    @keyframes float {
-      0% { transform: translateY(0) rotate(0deg); }
-      50% { transform: translateY(-600px) rotate(5deg); }
-      100% { transform: translateY(-1200px) rotate(-5deg); }
-    }
-  </style>
-</head>
-<body>
-  <h1>Selamat Ulang Tahun, Nindy! 🎉</h1>
-
-  <p>
-    Untuk orang yang paling berharga di hidupku,<br><br>
-    Terima kasih telah datang mengisi hari-hariku selama 2 tahun ini.<br>
-    Terima kasih telah menjadi orang yang paling spesial di hidupku,<br>
-    terima kasih telah menjadi teman berbagi cerita random dan hal-hal aneh,<br>
-    berbagi tawa dan sedih bersama,<br>
-    Terima kasih untuk semuanya yang sudah kamu berikan.<br><br>
-    <strong>Selamat Ulang Tahun Nindy &lt;3</strong>
-  </p>
-
-  <div class="heart">❤️</div>
-
-  <div class="footer">Dari seseorang yang sangat menyayangimu 💕</div>
-
-  <!-- Musik lembut -->
-  <audio autoplay loop>
-    <source src="https://cdn.pixabay.com/download/audio/2023/03/28/audio_d7a5a44a8a.mp3?filename=romantic-piano-melody-14405.mp3" type="audio/mpeg">
-  </audio>
-
-  <!-- Balon acak -->
-  <script>
-    const colors = ['#ff7eb9', '#ff65a3', '#7afcff', '#feff9c', '#fff740'];
-    for (let i = 0; i < 12; i++) {
-      const balloon = document.createElement('div');
-      balloon.classList.add('balloon');
-      balloon.style.left = Math.random() * 100 + 'vw';
-      balloon.style.background = `radial-gradient(circle at 30% 30%, ${colors[Math.floor(Math.random()*colors.length)]}, #ff4081)`;
-      balloon.style.animationDuration = 8 + Math.random() * 6 + 's';
-      document.body.appendChild(balloon);
-    }
-  </script>
-</body>
-</html>
-
-
-
-
-
-
